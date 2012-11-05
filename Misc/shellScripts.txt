@@ -1,0 +1,24 @@
+### MySQL Scripts ###
+
+# Dump a database
+mysqldump -h [host] -u [uname] -p[pass] [dbname] > [backupfile.sql]
+
+# Restore a database
+mysql -h [host] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
+
+# Grant privileges 
+GRANT ALL PRIVILEGES on <dbname>.<tables|*> TO <username> identified by '<password>'
+
+### Useful command line ###
+
+# Inside the directory <dir>, update the owner of all files and directories
+find <dir> -type d -exec chown 1000:users '{}' + -or -type f -exec chown 1000:users '{}' + 
+
+# Inside the directory <dir>, update the permissions of all files and directories
+find <dir> -type d -exec chmod 0775 '{}' + -or -type f -exec chmod 0664 '{}' + 
+
+# Find a string inside a file in a directory
+find . -type f -exec grep -Hns <string> {} \;
+
+# Perl find and replace
+perl -p -i -e 's/<oldString>/<newString>' <fileToSearch>
