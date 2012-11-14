@@ -8,8 +8,8 @@
  * @package MysqliDB
  * @author Jeffery Way <jeffrey@jeffrey-way.com>
  * @author Josh Campbell <jcampbell@ajillion.com>
- * @author Ben Freke <jcampbell@ajillion.com>
- * @copyright Copyright (c) 2010
+ * @author Ben Freke <benfreke@gmail.com>
+ * @copyright Copyright (c) 2010-2012
  * @license http://opensource.org/licenses/gpl-3.0.html GNU Public License
  * @version 1.1
  * */
