@@ -22,3 +22,44 @@ find . -type f -exec grep -Hns <string> {} \;
 
 # Perl find and replace
 perl -p -i -e 's/<oldString>/<newString>' <fileToSearch>
+
+# Copy a database from a remote location to local
+#!/bin/bash
+set -e
+
+RemoteUser=""
+RemoteHost=""
+RemoteMysqlUsername=v
+RemoteMysqlPassword=""
+LocalMysqlUsername=""
+LocalMysqlPassword=""
+RemoteDatabase=""
+LocalDatabase=""
+
+if [ -n "$1" ] ; then
+	RemoteDatabase="$1"
+else 
+	echo -n "Remote Database: "
+	read RemoteDatabaseValue
+	RemoteDatabase=${RemoteDatabaseValue}
+fi
+
+if [ -n "$2" ] ; then
+	LocalDatabase="$2"
+else 
+	echo -n "Local Database: "
+	read LocalDatabaseValue
+	LocalDatabase=${LocalDatabaseValue}
+fi
+
+if [ -n "$RemoteDatabase" ] ; then
+	if [ -n "$LocalDatabase" ] ; then
+		echo "Connecting to ${RemoteHost} with username ${RemoteUser}"
+		ssh ${RemoteUser}@${RemoteHost} mysqldump -u ${RemoteMysqlUsername} -p${RemoteMysqlPassword} ${RemoteDatabase} | mysql -c -u ${LocalMysqlUsername} -p${LocalMysqlPassword} ${LocalDatabase}
+	else 
+		echo "No local database supplied!"
+	fi
+else 
+	echo "No remote database name supplied!"
+fi
+
