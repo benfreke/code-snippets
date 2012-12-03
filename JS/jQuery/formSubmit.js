@@ -1,9 +1,9 @@
 function initEventTracking() {
     // Set up an event when a user enters details in a form
-    jQuery('#pcodeform').bind('submit', trackDealerSearch); 
+    jQuery('#pcodeform').bind('submit', trackSomething); 
 }
 
-var trackDealerSearch = function(e) {    
+var trackSomething = function(e) {    
     // Prevent the form being submitted just yet
     e.preventDefault();
 
@@ -17,7 +17,7 @@ var trackDealerSearch = function(e) {
         _gaq.push(['_trackEvent', 'Dealer Locator', 'Search', searchVal]);
         _gaq.push(function() {             
             // Submit the parent form
-            _this.unbind('submit', trackDealerSearch);
+            _this.unbind('submit', trackSomething);
             this.submit();
         });           
     } 
