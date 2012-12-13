@@ -28,8 +28,9 @@ require 'lessc.inc.php';
 
 /**
  * Creates our less file, either from the cache or programatticaly
+ *
  * @param string $less_fname The main less file which includes everything
- * @param string $css_fname The final compiled css filename.
+ * @param string $css_fname  The final compiled css filename.
  */
 function autoCompileLess($less_fname, $css_fname)
 {
@@ -40,7 +41,7 @@ function autoCompileLess($less_fname, $css_fname)
     if (file_exists($cache_fname)) {
         // Use the cache if the filetime is newer
         $cacheTime = filemtime($cache_fname);
-        $fileTime = filemtime($less_fname);
+        $fileTime  = filemtime($less_fname);
         // If I managed to read both and the cache is still relevant, use it
         if ($cacheTime && $fileTime && $fileTime < $cacheTime) {
             $cache = unserialize(file_get_contents($cache_fname));
