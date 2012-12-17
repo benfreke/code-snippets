@@ -9,8 +9,8 @@ require 'lessc.inc.php';
 
 /**
  * Automatically compiles the less css
- * @param $less_fname
- * @param $css_fname
+ * @param string $less_fname The name of the bootstrap less file that includes everything
+ * @param string $css_fname The compiled stylesheet
  */
 function autoCompileLess($less_fname, $css_fname)
 {
