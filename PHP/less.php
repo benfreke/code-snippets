@@ -24,6 +24,7 @@ if ($this->debug) { // A basic check so you don't have to change code between se
  * This is the entirety of the autoCompileLess.php file
  */
 // Our helper class, http://leafo.net/lessphp
+// https://github.com/leafo/lessphp/blob/master/lessc.inc.php
 require 'lessc.inc.php';
 
 /**
