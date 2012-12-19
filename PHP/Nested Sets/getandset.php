@@ -12,8 +12,7 @@
  * @param string $key   The static property to set
  * @param string $value The new value
  */
-protected
-function setStatic($key, $value)
+public function setStatic($key, $value)
 {
     if (isset(self::$$key)) {
         self::$$key = $value;
@@ -47,7 +46,7 @@ public function get($property)
 {
     if (property_exists($this, $property)) {
         $methodName = 'get' . ucfirst($property);
-        if (method_exists(this, $methodName)) {
+        if (method_exists(__CLASS__, $methodName)) {
             return $this->$methodName();
         }
         return $this->$property;
@@ -65,7 +64,7 @@ public function get($property)
  */
 public function set($property, $value)
 {
-    if (property_exists($this, $property)) {
+    if (property_exists(__CLASS__, $property)) {
         // Is there a specific method for this property?
         $methodName = 'set' . ucfirst($property);
         if (method_exists(this, $methodName)) {
