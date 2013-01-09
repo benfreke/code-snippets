@@ -31,3 +31,37 @@ function getSelectValues($start, $end, $padding = 2, $paddingDirection = STR_PAD
         echo "<option value='$value'>$value</option>\n";
     }
 }
+
+/**
+ * Custom Logger file
+ * @param mixed    $output The variable we want to examine
+ * @param int $recursion Indenting
+ */
+function benLog($output, $recursion = 0)
+{
+    if (!$recursion) {
+        echo '<br /><br />';
+    }
+
+    if (is_array($output) || is_object($output)) {
+        foreach ($output as $key => $value) {
+
+            for ($i = 0; $i < $recursion; $i++) {
+                echo '&nbsp;';
+            }
+            echo $key . ': ';
+            if (is_array($value)|| is_object($value)) {
+                echo '<br />';
+                benLog($value, $recursion + 4);
+            } else {
+                echo "$value<br />";
+            }
+        }
+    } else {
+
+        for ($i = 0; $i < $recursion; $i++) {
+            echo '&nbsp;';
+        }
+        echo $output . '<br>';
+    }
+}
