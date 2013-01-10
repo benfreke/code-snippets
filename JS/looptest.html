@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<body>
+<h1>Test of Javascript looping times</h1>
+
+<p>Counting down is quicker in enough instances that it is the way to go.</p>
+<p>Unless, of course, you need to increment inside a loop. In which case, count up.</p>
+<p>The difference is so small that unless you are calling a loop thousands of times, don't worry about it.</p>
+
+<script>
+    var count = 100000000;
+    var foo = 'bar';
+    var test = 0;
+
+    function countDown() {
+        for(var $i = count; $i > 0; $i-- ) {
+            foo = 'bar';
+        }
+
+    }
+
+    function countUp() {
+        for(var $i = 0; $i < count; $i++) {
+            foo = 'bar';
+        }
+    }
+
+    var dateObject = new Date();
+    var startTime = new Date().getTime();
+    var endTime = new Date().getTime();
+    // Get the count down
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+
+    endTime = new Date().getTime();
+    var countDownTime = endTime - startTime;
+
+    // Get the count up
+    startTime = new Date().getTime();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    countUp();
+    endTime = new Date().getTime();
+    var countUpTime = endTime - startTime;
+
+    document.write('Down = ' + countDownTime + '<br/>');
+    document.write('Up = ' + countUpTime + '<br>');
+
+</script>
+
+
+
+</body>
+</html>
