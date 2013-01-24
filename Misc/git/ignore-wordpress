@@ -32,11 +32,10 @@ wp-content/plugins/*
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
 wp-content/themes/*
-!wp-content/themes/wordpress-bootstrap/
+#!wp-content/themes/wordpress-bootstrap/
 
 # Hide cache files
 *.cache
 
 # Include versions of the config that are not the real one
-# Make sure to hide ALL of these with .htaccess
-# !wp-config.php.*
+!wp-config.php.*
