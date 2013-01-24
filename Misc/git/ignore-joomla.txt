@@ -1,0 +1,59 @@
+#### START Folder exclusions
+
+## Ignore all the directories in the root
+/administrator/*
+/cli/*
+/components/*
+/images/*
+/includes/*
+/language/*
+/layouts/*
+/libraries/*
+/logs/*
+/media/*
+/modules/*
+/plugins/*
+/templates/*
+
+## Now exclude a few other folders that may be scattered around
+## that we don't want to know about
+cache/*
+tmp/*
+
+## Exclude any IDE folders (if you work collaboratively this is invaluable)
+/.idea/*
+/.project/*
+
+#### END Folder exclusions
+
+#### START File exclusions
+
+## Ignore all the Files in the root that are server unique
+/configuration.php
+
+## Ignore some files ALWAYS
+# git readme files
+*.md
+# image database files
+Thumbs.db
+# finder (mac osx) indexing files
+.DS_Store
+
+#### END File exclusions
+
+#### START Custom includes
+
+## Include a component
+## Follow the example below and edit appropriately
+## The logic is straight forward (once you know it), and can be
+## applied to any folders within the file system
+# Frontend (easy)
+#!/components/com_mycomponentname/
+
+## Administration (not easy)
+#!/administrator/
+#/administrator/components/*
+#!/administrator/components/
+#!/administrator/components/com_mycomponentname/
+
+### END Custom includes
