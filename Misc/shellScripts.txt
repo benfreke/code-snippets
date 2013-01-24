@@ -20,6 +20,9 @@ find <dir> -type d -exec chmod 0775 '{}' + -or -type f -exec chmod 0664 '{}' +
 # Find a string inside a file in a directory
 find . -type f -exec grep -Hns <string> {} \;
 
+# find and delete all files named .svn
+find . -name ".svn" -type d -exec rm -rf {} \;
+
 # Perl find and replace
 perl -p -i -e 's/<oldString>/<newString>' <fileToSearch>
 
