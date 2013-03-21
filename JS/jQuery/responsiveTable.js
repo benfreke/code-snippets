@@ -71,16 +71,15 @@ if (allTables.length) {
 			// All the basic styling is done in the base css. We need to do the fancy before stuff now
 			headerRow.each(function(rowIndex) {
 				var headerText = jQuery(this).html();
-				console.log(headerText);
+
 				// Strip tags
 				headerText = headerText.replace(/(<([^>]+)>)/ig,"");
-				console.log(headerText);
+
 				// Replace control chars with spaces
 				headerText = headerText.replace(/(\r\n|\n|\r)/gm," ");
-				console.log(headerText);
+
 				// Replace double spaces with single spaces
 				headerText = headerText.replace(/(\s+)/gm," ");
-				console.log(headerText);
 
 				outputCss += "\n\t." + tableClass + ' td:nth-of-type(' + (parseInt(rowIndex) + 1) +'):before { ';
 				outputCss += 'content: "' + headerText +'"';
