@@ -52,7 +52,7 @@ if (allTables.length) {
 	var tablecss = document.createElement('style');
 	var $tablecss = jQuery(tablecss);
 
-	// Target mobile viewers only
+	// Target mobile viewers only. Change the hardcoded value as and when needed
 	var outputCss = '@media only screen and (max-width: 500px) {';
 
 	//
