@@ -1,6 +1,9 @@
+/**
+ * Assuming you have google analytics set up, this fires an event on form submission
+ */
 function initEventTracking() {
     // Set up an event when a user enters details in a form
-    jQuery('#pcodeform').on('submit.myNamespace', trackSomething);
+    jQuery('#myform').on('submit.myNamespace', trackSomething);
 }
 
 var trackSomething = function(e) {    
@@ -8,17 +11,17 @@ var trackSomething = function(e) {
     e.preventDefault();
 
     // Keep a reference to this dom element for the callback
-    var _this = jQuery(this);
+    var that = jQuery(this);
 
     // Get the value searched for
-    var searchVal = _this.find('#lb01').val();
+    var searchVal = that.find('#myinput').val();
 
     if (searchVal) {
         // Lets push the event to Google
-        _gaq.push(['_trackEvent', 'Dealer Locator', 'Search', searchVal]);
+        _gaq.push(['_trackEvent', 'Category', 'Name of Event', 'Value (searchVal)']);
         _gaq.push(function() {
             // Unbind this function from the this element
-            _this.off('submit.myNamespace');
+            that.off('submit.myNamespace');
             // Submit the parent form with no interruptions this time
             this.submit();
         });           
