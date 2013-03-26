@@ -33,14 +33,16 @@
 }
 
 .mobileTable td:before {
+	/* Now act like a table header */ /**
 	position: absolute;
+	/* Top/left values mimic padding */ /**
 	top: 6px;
 	left: 6px;
 	width: 45%;
 	padding-right: 10px;
 	white-space: nowrap;
-}
-**/
+	font-weight: 700;
+} /** **/
 
 
 // Add css to make tables display on mobiles
@@ -52,7 +54,7 @@ if (allTables.length) {
 	var tablecss = document.createElement('style');
 	var $tablecss = jQuery(tablecss);
 
-	// Target mobile viewers only. Change the hardcoded value as and when needed
+	// Target mobile viewers only
 	var outputCss = '@media only screen and (max-width: 500px) {';
 
 	//
@@ -71,7 +73,6 @@ if (allTables.length) {
 			// All the basic styling is done in the base css. We need to do the fancy before stuff now
 			headerRow.each(function(rowIndex) {
 				var headerText = jQuery(this).html();
-
 				// Strip tags
 				headerText = headerText.replace(/(<([^>]+)>)/ig,"");
 
