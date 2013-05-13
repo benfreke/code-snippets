@@ -32,20 +32,7 @@
     var dateObject = new Date();
     var startTime = new Date().getTime();
     var endTime = new Date().getTime();
-    // Get the count down
-    countDown();
-    countDown();
-    countDown();
-    countDown();
-    countDown();
-    countDown();
-    countDown();
-    countDown();
-    countDown();
-    countDown();
 
-    endTime = new Date().getTime();
-    var countDownTime = endTime - startTime;
 
     // Get the count up
     startTime = new Date().getTime();
@@ -61,6 +48,21 @@
     countUp();
     endTime = new Date().getTime();
     var countUpTime = endTime - startTime;
+
+    // Get the count down
+    startTime = new Date().getTime();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    countDown();
+    endTime = new Date().getTime();
+    var countDownTime = endTime - startTime;
 
     document.write('Down = ' + countDownTime + '<br/>');
     document.write('Up = ' + countUpTime + '<br>');
