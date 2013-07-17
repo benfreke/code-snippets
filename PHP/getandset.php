@@ -48,7 +48,7 @@ class gettersAndSetters
     {
         if (property_exists($this, $property)) {
             $methodName = 'get' . ucfirst($property);
-            if (method_exists(__CLASS__, $methodName)) {
+            if (method_exists($this, $methodName)) {
                 return $this->$methodName();
             }
             return $this->$property;
@@ -66,13 +66,14 @@ class gettersAndSetters
      */
     public function set($property, $value)
     {
-        if (property_exists(__CLASS__, $property)) {
+        if (property_exists($this, $property)) {
             // Is there a specific method for this property?
             $methodName = 'set' . ucfirst($property);
-            if (method_exists(__CLASS__, $methodName)) {
+            if (method_exists($this, $methodName)) {
                 $this->$methodName($value);
+            } else {
+                $this->$property = $value;
             }
-            $this->$property = $value;
         }
 
         // Return the class so this can be chained if required
